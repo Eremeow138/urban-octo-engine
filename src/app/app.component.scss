@@ -1,0 +1,18 @@
+@import 'colors';
+@import 'variables';
+@import 'mixins';
+
+.app {
+  @include flex-column;
+  width: 100vw;
+  height: 100vh;
+
+  &__main {
+    @include height-width-100-percent;
+  }
+  &__pages-wrapper {
+    @include height-width-100-percent;
+
+    background-color: $primary-bg-color;
+  }
+}
