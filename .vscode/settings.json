@@ -1,0 +1,18 @@
+{
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": true,
+  "[typescript]": {
+    "editor.formatOnSave": true,
+  },
+  "[html]": {
+    "editor.formatOnSave": true,
+  },
+  "[json]": {
+    "editor.formatOnSave": false,
+  },
+  "eslint.alwaysShowStatus": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+}
+
