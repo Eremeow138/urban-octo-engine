@@ -1,0 +1,52 @@
+@import 'colors';
+@import 'variables';
+@import 'mixins';
+
+:host {
+  @include height-width-100-percent;
+}
+
+.ships-list {
+  @include height-width-100-percent;
+  &__cards-wrapper {
+    @include height-width-100-percent;
+  }
+
+  &__pagination {
+    @include flex-row;
+    justify-content: space-between;
+    align-items: center;
+    width: 9.4rem;
+    height: 2.8rem;
+  }
+
+  &__pagination-button {
+    @include flex-row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: $primary-btn-bg-color;
+    cursor: pointer;
+    padding: 0.5rem;
+
+    &:hover {
+      .ships-list__pagination-icon {
+        filter: $icon-primary-filter-hover;
+      }
+    }
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+
+  &__pagination-icon {
+    filter: $icon-primary-filter;
+
+    &_left {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__page-count {
+  }
+}

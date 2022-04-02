@@ -10,3 +10,7 @@
 html {
   @include default-text;
 }
+
+body {
+  font-size: $primary-font-size;
+}
