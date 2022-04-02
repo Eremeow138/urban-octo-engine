@@ -1,6 +1,10 @@
 <div class="ships-list">
   <div class="ships-list__cards-wrapper">
-    <app-ship-card></app-ship-card>
+    <app-ship-card
+      *ngFor="let ship of ships"
+      [ship]="ship"
+      (goInsideEvent)="goInside($event)"
+    ></app-ship-card>
   </div>
   <div class="ships-list__pagination">
     <button class="button ships-list__pagination-button">

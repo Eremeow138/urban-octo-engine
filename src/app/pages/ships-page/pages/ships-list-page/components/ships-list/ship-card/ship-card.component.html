@@ -1,6 +1,6 @@
-<div class="ship-card">
+<div *ngIf="ship" class="ship-card">
   <div class="ship-card__header">
-    <h2 class="ship-card__title">GO Ms Chief</h2>
+    <h2 class="ship-card__title">{{ship.name}}</h2>
     <button class="button ship-card__go-inside-button">
       <img
         class="button__icon ship-card__go-inside-icon"
@@ -14,9 +14,9 @@
       <table class="ship-card__table">
         <tr class="ship-card__table-row">
           <td class="ship-card__table-cell ship-card__table-cell_property">Тип</td>
-          <td class="ship-card__table-cell ship-card__table-cell_value">High Speed Craft</td>
+          <td class="ship-card__table-cell ship-card__table-cell_value">{{ship.type}}</td>
           <td class="ship-card__table-cell ship-card__table-cell_property">Порт</td>
-          <td class="ship-card__table-cell ship-card__table-cell_value">Port Canaveral</td>
+          <td class="ship-card__table-cell ship-card__table-cell_value">{{ship.home_port}}</td>
         </tr>
       </table>
     </div>
