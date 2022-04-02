@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ShipsListPageComponent } from './components/ships-list-page/ships-list-page.component';
 import { ShipListPageRoutingModule } from './ships-list-page-routing.module';
+import { ShipsListPageComponent } from './components/ships-list-page.component';
 
 const COMPONENTS = [ShipsListPageComponent];
 
