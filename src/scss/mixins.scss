@@ -36,4 +36,9 @@
   font-size: $default-font-size;
   font-family: $default-font-family;
   font-weight: 400;
+  color: $primary-text-color;
+}
+@mixin button {
+  cursor: pointer;
+  border: none;
 }

@@ -3,9 +3,15 @@ $default-font-family: 'Roboto';
 $default-font-size: 10px;
 $primary-font-size: 1.6rem;
 
+$primary-title-font-size: 2.8rem;
+$secondary-title-font-size: 2rem;
+
 $icon-primary-filter: invert(62%) sepia(77%) saturate(6337%) hue-rotate(208deg) brightness(103%)
   contrast(101%);
-$icon-primary-filter-hover: invert(62%) sepia(77%) saturate(6337%) hue-rotate(208deg) brightness(70%)
-  contrast(101%);
+$icon-primary-filter-hover: invert(62%) sepia(77%) saturate(6337%) hue-rotate(208deg)
+  brightness(70%) contrast(101%);
 $icon-secondary-filter: invert(23%) sepia(14%) saturate(537%) hue-rotate(154deg) brightness(95%)
   contrast(85%);
+
+$btn-primary-paddings: 0.5rem;
+$btn-primary-icon-size: 1.6rem;

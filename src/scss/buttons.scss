@@ -1,0 +1,24 @@
+.button {
+  @include flex-row;
+  @include button;
+
+  height: min-content;
+  align-items: center;
+  justify-content: center;
+  padding: $btn-primary-paddings;
+  background-color: $third-bg-color;
+
+  &:hover {
+    .button__icon {
+      filter: $icon-primary-filter-hover;
+    }
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &__icon {
+    @include icon-size($btn-primary-icon-size);
+    filter: $icon-primary-filter;
+  }
+}

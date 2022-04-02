@@ -1,0 +1,35 @@
+@import 'colors';
+@import 'variables';
+@import 'mixins';
+
+:host {
+  @include height-width-100-percent;
+}
+
+.ship-card {
+  width: 100%;
+  border-bottom: 1px solid $sixth-bg-color;
+  padding-bottom: 2.9rem;
+
+  &__header {
+    @include flex-row;
+    align-items: center;
+    margin-bottom: 2.9rem;
+  }
+
+  &__title {
+    display: block;
+    font-size: $secondary-title-font-size;
+    margin-right: 1.8rem;
+  }
+
+  &__table-cell {
+    &_property {
+      padding-right: 10.4rem;
+    }
+    &_value {
+      width: 321px;
+      color: $secondary-text-color;
+    }
+  }
+}
