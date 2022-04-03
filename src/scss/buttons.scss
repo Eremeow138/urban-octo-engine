@@ -14,11 +14,20 @@
     }
   }
   &:active {
-    transform: scale(0.9);
+    &:not([disabled]) {
+      transform: scale(0.9);
+    }
   }
-
   &__icon {
     @include icon-size($btn-primary-icon-size);
     filter: $icon-primary-filter;
+  }
+  &[disabled] {
+    cursor: default;
+  }
+  &[disabled] {
+    .button__icon {
+      filter: $icon-secondary-filter;
+    }
   }
 }

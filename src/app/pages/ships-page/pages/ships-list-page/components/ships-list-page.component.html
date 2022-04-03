@@ -6,7 +6,14 @@
       </div>
       <div class="ships-list-page__list-wrapper">
         <div class="ships-list-page__list">
-          <app-ships-list></app-ships-list>
+          <app-ships-list
+            [ships]="ships$ | async"
+            [currentPage]="(currentPage + 1)"
+            [isNextPageExist]="isNextPageExist"
+            [isPreviousPageExist]="isPreviousPageExist"
+            (nextPageEvent)="fetchNext()"
+            (previousPageEvent)="fetchPrevious()"
+          ></app-ships-list>
         </div>
       </div>
     </section>
