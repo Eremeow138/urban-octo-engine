@@ -17,7 +17,7 @@
     @include height-width-100-percent;
     @include flex-column;
 
-    padding: 5.2rem 6.3rem;
+    padding: $page-paddings;
   }
   &__header {
     @include flex-column;
