@@ -23,13 +23,7 @@
     margin-right: 1.8rem;
   }
 
-  &__table-cell {
-    &_property {
-      padding-right: 10.4rem;
-    }
-    &_value {
-      width: 321px;
-      color: $secondary-text-color;
-    }
+  &__table-wrapper {
+    @include height-width-100-percent;
   }
 }

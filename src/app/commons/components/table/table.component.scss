@@ -1,0 +1,21 @@
+@import 'colors';
+@import 'variables';
+@import 'mixins';
+
+:host {
+  @include height-width-100-percent;
+}
+
+.table {
+  @include height-width-100-percent;
+
+  &__cell {
+    &:nth-child(even) {
+      width: 321px;
+      color: $secondary-text-color;
+    }
+    &:nth-child(odd) {
+      width: 132px;
+    }
+  }
+}
