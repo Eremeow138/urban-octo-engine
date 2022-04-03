@@ -7,15 +7,23 @@
     ></app-ship-card>
   </div>
   <div class="ships-list__pagination">
-    <button class="button ships-list__pagination-button">
+    <button
+      class="button ships-list__pagination-button"
+      [disabled]="!isPreviousPageExist"
+      (click)="previousPage()"
+    >
       <img
         class="button__icon ships-list__pagination-icon ships-list__pagination-icon_left"
         src="assets/icons/paginagion-arrow.svg"
         alt="arrow"
       />
     </button>
-    <span class="ships-list__page-count">1</span>
-    <button class="button ships-list__pagination-button">
+    <span class="ships-list__page-count">{{ currentPage }}</span>
+    <button
+      class="button ships-list__pagination-button"
+      [disabled]="!isNextPageExist"
+      (click)="nextPage()"
+    >
       <img
         class="button__icon ships-list__pagination-icon"
         src="assets/icons/paginagion-arrow.svg"
