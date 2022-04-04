@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ITableRow } from '../../interfaces/table-data.interface';
+import { ITableRow } from '../../interfaces/table-row.interface';
 
 @Component({
   selector: 'app-table',
