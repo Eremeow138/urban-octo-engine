@@ -1,0 +1,53 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  @include height-width-100-percent;
+}
+
+.ship-page {
+  @include height-width-100-percent;
+
+  &__content-wrapper {
+    @include height-width-100-percent;
+    @include flex-column;
+
+    padding: $page-paddings;
+  }
+
+  &__header {
+    @include flex-column;
+
+    align-items: flex-start;
+    width: 100%;
+    height: min-content;
+    margin-bottom: 6.4rem;
+  }
+
+  &__back-btn {
+    margin-bottom: 2.2rem;
+  }
+
+  &__back-icon {
+    @include icon-size(0.9rem);
+    margin-right: 0.7rem;
+    transform: rotate(180deg);
+  }
+
+  &__title {
+    font-size: 2.8rem;
+  }
+
+  &__info-wrapper {
+    @include height-width-100-percent;
+    @include flex-column;
+
+    max-width: 700px;
+    align-items: center;
+  }
+
+  &__info {
+    width: 100%;
+    height: min-content;
+  }
+}

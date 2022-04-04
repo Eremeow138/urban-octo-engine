@@ -9,7 +9,8 @@
   background-color: $third-bg-color;
 
   &:hover {
-    .button__icon {
+    .button__icon,
+    .button__text {
       filter: $icon-primary-filter-hover;
     }
   }
@@ -26,8 +27,13 @@
     cursor: default;
   }
   &[disabled] {
-    .button__icon {
+    .button__icon,
+    .button__text {
       filter: $icon-secondary-filter;
     }
+  }
+  &__text {
+    @include button-text;
+    filter: $icon-primary-filter;
   }
 }
