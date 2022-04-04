@@ -55,7 +55,7 @@ export class ShipsListPageComponent implements OnInit {
       );
   }
 
-  public redirectToShipPage(shipId: number): void {
+  public redirectToShipPage(shipId: string): void {
     this.router.navigate([shipId], { relativeTo: this.route });
   }
 

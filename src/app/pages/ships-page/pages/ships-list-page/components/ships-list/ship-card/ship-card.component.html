@@ -1,7 +1,7 @@
 <div *ngIf="ship" class="ship-card">
   <div class="ship-card__header">
     <h2 class="ship-card__title">{{ ship.name }}</h2>
-    <button class="button ship-card__go-inside-button">
+    <button (click)="goInside()" class="button ship-card__go-inside-button">
       <img
         class="button__icon ship-card__go-inside-icon"
         src="assets/icons/go-inside-arrow.svg"

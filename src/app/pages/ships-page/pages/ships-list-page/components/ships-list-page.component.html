@@ -13,6 +13,7 @@
             [isPreviousPageExist]="isPreviousPageExist"
             (nextPageEvent)="fetchNext()"
             (previousPageEvent)="fetchPrevious()"
+            (goInsideEvent)="redirectToShipPage($event)"
           ></app-ships-list>
         </div>
       </div>
