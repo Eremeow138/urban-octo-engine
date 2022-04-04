@@ -9,11 +9,17 @@ import { InMemoryCache } from '@apollo/client/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { apolloSettings } from 'src/settings/settings';
+import { RouteReuseStrategy } from '@angular/router';
+import { CustomRouteReuseStrategy } from './custom-route-reuse-strategy';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, ApolloModule, HttpClientModule, AppRoutingModule],
   providers: [
+    {
+      provide: RouteReuseStrategy,
+      useClass: CustomRouteReuseStrategy,
+    },
     {
       provide: APOLLO_NAMED_OPTIONS,
       useFactory: (httpLink: HttpLink): NamedOptions => {
