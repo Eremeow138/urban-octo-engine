@@ -9,12 +9,11 @@
 .ship-card {
   width: 100%;
   border-bottom: 1px solid $sixth-bg-color;
-  padding-bottom: 2.9rem;
+  margin-bottom: 4rem;
 
   &__header {
     @include flex-row;
     align-items: center;
-    margin-bottom: 2.9rem;
   }
 
   &__title {
@@ -25,5 +24,6 @@
 
   &__table-wrapper {
     @include height-width-100-percent;
+    margin: 0.9rem 0;
   }
 }

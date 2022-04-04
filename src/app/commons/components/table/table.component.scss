@@ -10,6 +10,7 @@
   @include height-width-100-percent;
 
   &__cell {
+    padding: 2rem 0;
     &:nth-child(even) {
       width: 321px;
       color: $secondary-text-color;
