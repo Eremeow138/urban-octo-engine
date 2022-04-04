@@ -1,14 +1,14 @@
-<div class="ships-list-page">
+<div class="page ships-list-page">
   <div class="ships-list-page__main-wrapper">
-    <section class="ships-list-page__content-wrapper">
-      <div class="ships-list-page__header">
-        <h1 class="ships-list-page__title">SpaceX Ships</h1>
+    <section class="page__wrapper">
+      <div class="page__header">
+        <h1 class="page__title">SpaceX Ships</h1>
       </div>
-      <div class="ships-list-page__list-wrapper">
+      <div class="page__content-wrapper ships-list-page__list-wrapper">
         <div class="ships-list-page__list">
           <app-ships-list
             [ships]="ships$ | async"
-            [currentPage]="(currentPage + 1)"
+            [currentPage]="currentPage + 1"
             [isNextPageExist]="isNextPageExist"
             [isPreviousPageExist]="isPreviousPageExist"
             (nextPageEvent)="fetchNext()"

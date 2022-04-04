@@ -1,6 +1,6 @@
-<div class="ship-page">
-  <section class="ship-page__content-wrapper">
-    <div class="ship-page__header">
+<div class="page ship-page">
+  <section class="page__wrapper">
+    <div class="page__header ship-page__header">
       <button class="button ship-page__back-btn">
         <img
           class="button__icon ship-page__back-icon"
@@ -9,9 +9,9 @@
         />
         <span class="button__text ship-page__back-text">Вернуться</span>
       </button>
-      <h1 class="ship-page__title">SpaceX Ships</h1>
+      <h1 class="page__title">SpaceX Ships</h1>
     </div>
-    <div class="ship-page__info-wrapper">
+    <div class="page__content-wrapper ship-page__info-wrapper">
       <div class="ship-page__info">
         <app-table
           [tableRows]="[

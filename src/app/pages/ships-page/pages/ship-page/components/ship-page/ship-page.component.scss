@@ -6,22 +6,8 @@
 }
 
 .ship-page {
-  @include height-width-100-percent;
-
-  &__content-wrapper {
-    @include height-width-100-percent;
-    @include flex-column;
-
-    padding: $page-paddings;
-  }
-
   &__header {
-    @include flex-column;
-
     align-items: flex-start;
-    width: 100%;
-    height: min-content;
-    margin-bottom: 6.4rem;
   }
 
   &__back-btn {
@@ -34,16 +20,8 @@
     transform: rotate(180deg);
   }
 
-  &__title {
-    font-size: 2.8rem;
-  }
-
   &__info-wrapper {
-    @include height-width-100-percent;
-    @include flex-column;
-
     max-width: 700px;
-    align-items: center;
   }
 
   &__info {
