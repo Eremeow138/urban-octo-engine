@@ -1,0 +1,10 @@
+@import 'mixins';
+:host {
+  @include height-width-100-percent;
+}
+.ships-page {
+  @include height-width-100-percent;
+  &__pages {
+    @include height-width-100-percent;
+  }
+}

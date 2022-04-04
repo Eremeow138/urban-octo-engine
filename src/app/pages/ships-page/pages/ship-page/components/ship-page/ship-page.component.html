@@ -1,0 +1,20 @@
+<div class="page ship-page">
+  <section class="page__wrapper">
+    <div class="page__header ship-page__header">
+      <button (click)="navigateToShipsListPage()" class="button ship-page__back-btn">
+        <img
+          class="button__icon ship-page__back-icon"
+          src="assets/icons/go-inside-arrow.svg"
+          alt="comeback"
+        />
+        <span class="button__text ship-page__back-text">Вернуться</span>
+      </button>
+      <h1 *ngIf="ship" class="page__title">{{ ship.name }}</h1>
+    </div>
+    <div class="page__content-wrapper ship-page__info-wrapper">
+      <div *ngIf="ship" class="ship-page__info">
+        <app-table [tableRows]="tableRows"></app-table>
+      </div>
+    </div>
+  </section>
+</div>

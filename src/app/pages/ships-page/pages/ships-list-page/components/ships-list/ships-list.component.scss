@@ -1,0 +1,29 @@
+@import 'colors';
+@import 'variables';
+@import 'mixins';
+
+:host {
+  @include height-width-100-percent;
+}
+
+.ships-list {
+  @include height-width-100-percent;
+  &__cards-wrapper {
+    width: 100%;
+    height: calc(100% - 2.8rem);
+  }
+
+  &__pagination {
+    @include flex-row;
+    justify-content: space-between;
+    align-items: center;
+    width: 9.4rem;
+    height: 2.8rem;
+  }
+
+  &__pagination-icon {
+    &_left {
+      transform: rotate(180deg);
+    }
+  }
+}

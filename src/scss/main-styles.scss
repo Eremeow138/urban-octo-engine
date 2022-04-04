@@ -1,0 +1,16 @@
+@import "variables";
+@import "mixins";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  @include default-text;
+}
+
+body {
+  font-size: $primary-font-size;
+}

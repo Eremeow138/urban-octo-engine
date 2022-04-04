@@ -1,0 +1,11 @@
+<table *ngIf="tableRows" class="table">
+  <tr *ngFor="let row of tableRows" class="table__row">
+    <td
+      *ngFor="let cell of row.cells"
+      [attr.colspan]="row.colspan"
+      class="table__cell {{ row.cellClasses }}"
+    >
+      {{ cell }}
+    </td>
+  </tr>
+</table>

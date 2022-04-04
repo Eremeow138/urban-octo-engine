@@ -1,0 +1,39 @@
+.button {
+  @include flex-row;
+  @include button;
+
+  height: min-content;
+  align-items: center;
+  justify-content: center;
+  padding: $btn-primary-paddings;
+  background-color: $third-bg-color;
+
+  &:hover {
+    .button__icon,
+    .button__text {
+      filter: $icon-primary-filter-hover;
+    }
+  }
+  &:active {
+    &:not([disabled]) {
+      transform: scale(0.9);
+    }
+  }
+  &__icon {
+    @include icon-size($btn-primary-icon-size);
+    filter: $icon-primary-filter;
+  }
+  &[disabled] {
+    cursor: default;
+  }
+  &[disabled] {
+    .button__icon,
+    .button__text {
+      filter: $icon-secondary-filter;
+    }
+  }
+  &__text {
+    @include button-text;
+    filter: $icon-primary-filter;
+  }
+}
