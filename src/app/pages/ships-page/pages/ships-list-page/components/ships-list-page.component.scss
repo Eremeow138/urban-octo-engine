@@ -6,34 +6,16 @@
 }
 
 .ships-list-page {
-  @include height-width-100-percent;
-
   &__main-wrapper {
     @include height-width-100-percent;
     @include flex-row;
-  }
-
-  &__content-wrapper {
-    @include height-width-100-percent;
-    @include flex-column;
-
-    padding: 5.2rem 6.3rem;
   }
   &__header {
     @include flex-column;
 
     width: 100%;
     height: min-content;
-    margin-bottom: 6.4rem;
-  }
-  &__title {
-    font-size: 2.8rem;
-  }
-  &__list-wrapper {
-    @include height-width-100-percent;
-    @include flex-column;
-
-    align-items: center;
+    margin-bottom: 5.3rem;
   }
   &__list {
     @include height-width-100-percent;

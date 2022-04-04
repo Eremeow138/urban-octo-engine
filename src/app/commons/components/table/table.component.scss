@@ -1,0 +1,29 @@
+@import 'colors';
+@import 'variables';
+@import 'mixins';
+
+:host {
+  @include height-width-100-percent;
+}
+
+.table {
+  @include height-width-100-percent;
+
+  &__cell {
+    padding: 1.2rem 0;
+    line-height: 3.2rem;
+    &:nth-child(even) {
+      width: 321px;
+      color: $secondary-text-color;
+    }
+    &:nth-child(odd) {
+      width: 132px;
+    }
+    &_blue {
+      color: $secondary-text-color;
+    }
+    &_only-bottom-padding {
+      padding: 0 0 1.2rem 0;
+    }
+  }
+}

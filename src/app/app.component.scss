@@ -4,8 +4,9 @@
 
 .app {
   @include flex-column;
-  width: 100vw;
-  height: 100vh;
+  @include height-width-100-percent;
+  @include absolute-zero-position;
+  align-items: stretch;
 
   &__main {
     @include height-width-100-percent;

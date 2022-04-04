@@ -1,0 +1,28 @@
+@import 'variables';
+@import 'mixins';
+.page{
+  @include height-width-100-percent;
+
+  &__wrapper {
+    @include height-width-100-percent;
+    @include flex-column;
+
+    padding: $page-paddings;
+  }
+  &__header {
+    @include flex-column;
+
+    width: 100%;
+    height: min-content;
+    margin-bottom: 6.4rem;
+  }
+  &__title {
+    font-size: 2.8rem;
+  }
+  &__content-wrapper {
+    @include height-width-100-percent;
+    @include flex-column;
+
+    align-items: center;
+  }
+}

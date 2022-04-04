@@ -1,7 +1,7 @@
 <div *ngIf="ship" class="ship-card">
   <div class="ship-card__header">
-    <h2 class="ship-card__title">{{ship.name}}</h2>
-    <button class="button ship-card__go-inside-button">
+    <h2 class="ship-card__title">{{ ship.name }}</h2>
+    <button (click)="goInside()" class="button ship-card__go-inside-button">
       <img
         class="button__icon ship-card__go-inside-icon"
         src="assets/icons/go-inside-arrow.svg"
@@ -11,14 +11,7 @@
   </div>
   <div class="ship-card__body">
     <div class="ship-card__table-wrapper">
-      <table class="ship-card__table">
-        <tr class="ship-card__table-row">
-          <td class="ship-card__table-cell ship-card__table-cell_property">Тип</td>
-          <td class="ship-card__table-cell ship-card__table-cell_value">{{ship.type}}</td>
-          <td class="ship-card__table-cell ship-card__table-cell_property">Порт</td>
-          <td class="ship-card__table-cell ship-card__table-cell_value">{{ship.home_port}}</td>
-        </tr>
-      </table>
+      <app-table [tableRows]="[{ cells: ['Тип', ship.type, 'Порт', ship.home_port] }]"></app-table>
     </div>
   </div>
 </div>

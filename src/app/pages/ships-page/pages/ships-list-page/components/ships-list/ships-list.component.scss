@@ -9,7 +9,8 @@
 .ships-list {
   @include height-width-100-percent;
   &__cards-wrapper {
-    @include height-width-100-percent;
+    width: 100%;
+    height: calc(100% - 2.8rem);
   }
 
   &__pagination {
@@ -20,16 +21,9 @@
     height: 2.8rem;
   }
 
-  &__pagination-button {
-
-  }
-
   &__pagination-icon {
     &_left {
       transform: rotate(180deg);
     }
-  }
-
-  &__page-count {
   }
 }
