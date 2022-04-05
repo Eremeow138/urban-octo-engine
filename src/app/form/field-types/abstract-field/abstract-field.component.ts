@@ -8,4 +8,11 @@ export abstract class AbstractFieldComponent {
 
   @Input()
   public control: FormControl = null;
+
+  public isValueExist(): boolean {
+    if (Array.isArray(this.control.value)) {
+      return !!this.control.value.length;
+    }
+    return !!this.control.value;
+  }
 }
