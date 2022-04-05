@@ -7,6 +7,10 @@
     </div>
     <div class="ships-form__field-list">
       <div class="ships-form__field-wrapper">
+        <app-string-field
+          [control]="shipsFiltersForm.get(shipNameFormControlName)"
+          placeholder="Название"
+        ></app-string-field>
       </div>
     </div>
   </form>

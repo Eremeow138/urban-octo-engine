@@ -4,9 +4,6 @@ import { FormControl } from '@angular/forms';
 @Directive()
 export abstract class AbstractFieldComponent {
   @Input()
-  public fieldName = '';
-
-  @Input()
   public placeholder = '';
 
   @Input()
