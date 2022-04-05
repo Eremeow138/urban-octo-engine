@@ -6,9 +6,15 @@ $fifth-color: #347cff;
 $sixth-color: #e5e5e5;
 $seventh-color: rgba(0, 0, 0, 0.87);
 $eighth-color: #000000;
+$ninth-color: rgba(0, 0, 0, 0.4);
 
 $primary-text-color: $seventh-color;
 $secondary-text-color: $fifth-color;
+
+$input-placeholder-color: $ninth-color;
+
+$field-border-color: $ninth-color;
+$field-border-focus-color: $fifth-color;
 
 $primary-bg-color: $primary-color;
 $secondary-bg-color: $secondary-color;
