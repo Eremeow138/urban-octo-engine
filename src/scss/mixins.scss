@@ -65,6 +65,7 @@
 
 @mixin input-text {
   font-size: $primary-font-size;
+  font-family: $default-font-family;
 }
 @mixin input {
   @include input-text;
