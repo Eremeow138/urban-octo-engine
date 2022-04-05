@@ -10,7 +10,11 @@ import { ShipsFiltersForm } from 'src/app/form/models/ships-filters-form.model';
 export class ShipsFiltersFormComponent implements OnInit {
   public shipNameFormControlName = ShipsFiltersFormControl.ShipName;
 
+  public portsFormControlName = ShipsFiltersFormControl.Ports;
+
   public shipsFiltersForm: ShipsFiltersForm = null;
+
+  public ports = ['Port Canaveral', 'Port of Los Angeles', 'Fort Lauderdale'];
 
   public ngOnInit(): void {
     this.createForm();

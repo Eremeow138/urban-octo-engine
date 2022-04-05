@@ -12,6 +12,13 @@
           placeholder="Название"
         ></app-string-field>
       </div>
+      <div class="ships-form__field-wrapper">
+        <app-selection-field
+          [control]="shipsFiltersForm.get(portsFormControlName)"
+          [selections]="ports"
+          placeholder="Название"
+        ></app-selection-field>
+      </div>
     </div>
   </form>
 </div>

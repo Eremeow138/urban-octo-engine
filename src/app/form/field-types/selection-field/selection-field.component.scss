@@ -1,0 +1,77 @@
+@import 'colors';
+@import 'variables';
+@import 'mixins';
+
+:host {
+  @include height-width-100-percent;
+}
+
+.selection-field {
+  @include height-width-100-percent;
+  &__input-wrapper {
+    position: relative;
+  }
+
+  &__input {
+    @include input-field;
+    &:focus ~ .selection-field__label {
+      @include input-placeholder-up;
+    }
+  }
+
+  &__label {
+    @include input-placeholder;
+
+    &_placeholder-up {
+      @include input-placeholder-up;
+    }
+  }
+
+  &__selection-list-wrapper {
+    position: relative;
+  }
+
+  &__selection-list {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: -1px;
+    left: 0;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.23), 0px 3px 6px rgba(0, 0, 0, 0.16);
+    border-top: 1px solid $field-border-color;
+    transition-property: border-color;
+    transition-duration: $primary-duration;
+
+    &_visible {
+      display: block;
+      border-color: $field-border-focus-color;
+    }
+  }
+
+  &__selection {
+    width: 100%;
+    list-style: none;
+    &:first-child .selection-field__checkbox-label {
+      padding-top: 1.6rem;
+    }
+    &:last-child .selection-field__checkbox-label {
+      padding-bottom: 1.6rem;
+    }
+  }
+
+  &__checkbox-label {
+    @include flex-row;
+    width: 100%;
+    align-items: center;
+    padding: 0.8rem 1.6rem;
+    cursor: pointer;
+  }
+
+  &__checkbox-text {
+    user-select: none;
+  }
+
+  &__checkbox {
+    margin-right: 1.5rem;
+  }
+}
