@@ -55,7 +55,7 @@
   align-items: center;
   color: $input-placeholder-color;
   min-height: $field-min-height;
-  transition: 0.5s;
+  transition: $primary-duration;
   pointer-events: none;
 }
 @mixin input-placeholder-up {
