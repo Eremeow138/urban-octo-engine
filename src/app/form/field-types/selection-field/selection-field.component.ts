@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   HostListener,
@@ -15,6 +16,7 @@ import { AbstractFieldComponent } from '../abstract-field/abstract-field.compone
   selector: 'app-selection-field',
   templateUrl: './selection-field.component.html',
   styleUrls: ['./selection-field.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectionFieldComponent extends AbstractFieldComponent implements OnInit, OnDestroy {
   @Input()

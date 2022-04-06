@@ -1,4 +1,11 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ShipsFiltersFormControl } from 'src/app/form/enums/ships-filters-form-control.enum';
@@ -9,6 +16,7 @@ import { ShipsFiltersFormValue } from 'src/app/form/types/ships-filters-form-val
   selector: 'app-ships-filters-form',
   templateUrl: './ships-filters-form.component.html',
   styleUrls: ['./ships-filters-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShipsFiltersFormComponent implements OnInit, OnDestroy {
   public shipNameFormControlName = ShipsFiltersFormControl.ShipName;
