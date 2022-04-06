@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { ShipsFiltersFormControl } from 'src/app/form/enums/ships-filters-form-control.enum';
 import { ShipsFiltersForm } from 'src/app/form/models/ships-filters-form.model';
+import { ShipsFiltersFormValue } from 'src/app/form/types/ships-filters-form-value';
 
 @Component({
   selector: 'app-ships-filters-form',
   templateUrl: './ships-filters-form.component.html',
   styleUrls: ['./ships-filters-form.component.scss'],
 })
-export class ShipsFiltersFormComponent implements OnInit {
+export class ShipsFiltersFormComponent implements OnInit, OnDestroy {
   public shipNameFormControlName = ShipsFiltersFormControl.ShipName;
 
   public portsFormControlName = ShipsFiltersFormControl.Ports;
@@ -16,10 +19,23 @@ export class ShipsFiltersFormComponent implements OnInit {
 
   public ports = ['Port Canaveral', 'Port of Los Angeles', 'Fort Lauderdale'];
 
+  private unsubscribe$ = new Subject<void>();
+
+  @Output()
+  private filtersValuesChangedEvent = new EventEmitter<ShipsFiltersFormValue>();
+
+  public filtersValuesEmit(shipsFilters: ShipsFiltersFormValue): void {
+    this.filtersValuesChangedEvent.emit(shipsFilters);
+  }
+
   public ngOnInit(): void {
     this.createForm();
-    //TODO remove subscribe on valueChanges
-    this.shipsFiltersForm.valueChanges.subscribe((val) => console.log(val));
+    this.subscribeToEmitFilters();
+  }
+
+  public ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
   private createForm(): void {
@@ -28,5 +44,14 @@ export class ShipsFiltersFormComponent implements OnInit {
       [ShipsFiltersFormControl.Ports]: [],
       [ShipsFiltersFormControl.Type]: '',
     });
+  }
+
+  private subscribeToEmitFilters() {
+    this.shipsFiltersForm.valueChanges
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((formValue: ShipsFiltersFormValue) => {
+        formValue.ports.sort();
+        this.filtersValuesEmit(formValue);
+      });
   }
 }
