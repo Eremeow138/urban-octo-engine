@@ -15,9 +15,13 @@ export class ShipsFiltersFormComponent implements OnInit, OnDestroy {
 
   public portsFormControlName = ShipsFiltersFormControl.Ports;
 
+  public typesFormControlName = ShipsFiltersFormControl.Type;
+
   public shipsFiltersForm: ShipsFiltersForm = null;
 
   public ports = ['Port Canaveral', 'Port of Los Angeles', 'Fort Lauderdale'];
+
+  public types = ['Barge', 'Cargo', 'High Speed Craft', 'Tug'];
 
   private unsubscribe$ = new Subject<void>();
 

@@ -1,0 +1,42 @@
+@import 'colors';
+@import 'variables';
+@import 'mixins';
+
+:host {
+  @include height-width-100-percent;
+}
+.radiobutton-field {
+  @include height-width-100-percent;
+  &__title-wrapper {
+    margin-bottom: 1.5rem;
+  }
+
+  &__title {
+    font-weight: 700;
+  }
+
+  &__radiobutton-list-wrapper {
+    @include height-width-100-percent;
+  }
+
+  &__radiobutton-list {
+    width: 100%;
+    list-style: none;
+  }
+
+  &__radiobutton-label {
+    @include flex-row;
+    width: 100%;
+    align-items: center;
+    padding: 0.8rem 0;
+    cursor: pointer;
+  }
+
+  &__radiobutton {
+    margin-right: 2.8rem;
+  }
+
+  &__radiobutton-text {
+    user-select: none;
+  }
+}

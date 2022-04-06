@@ -19,6 +19,13 @@
           placeholder="Название"
         ></app-selection-field>
       </div>
+      <div class="ships-form__field-wrapper">
+        <app-radiobutton-field
+          [control]="shipsFiltersForm.get(typesFormControlName)"
+          [choices]="types"
+          name="Тип"
+        ></app-radiobutton-field>
+      </div>
     </div>
   </form>
 </div>
