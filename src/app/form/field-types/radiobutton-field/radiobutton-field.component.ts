@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { AbstractFieldComponent } from '../abstract-field/abstract-field.component';
 
 @Component({
   selector: 'app-radiobutton-field',
   templateUrl: './radiobutton-field.component.html',
   styleUrls: ['./radiobutton-field.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RadiobuttonFieldComponent extends AbstractFieldComponent {
   @Input()

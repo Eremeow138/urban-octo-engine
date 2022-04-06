@@ -1,4 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -11,6 +17,7 @@ import { ShipsService } from 'src/app/pages/ships-page/ships/services/ships.serv
   selector: 'app-ship-page',
   templateUrl: './ship-page.component.html',
   styleUrls: ['./ship-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShipPageComponent implements OnInit, OnDestroy {
   public ship: IShipFull | null = null;
@@ -23,6 +30,7 @@ export class ShipPageComponent implements OnInit, OnDestroy {
     private shipsService: ShipsService,
     private router: Router,
     private route: ActivatedRoute,
+    private cd: ChangeDetectorRef,
   ) {}
 
   public ngOnInit(): void {
@@ -81,6 +89,7 @@ export class ShipPageComponent implements OnInit, OnDestroy {
             cellClasses: 'table__cell_blue table__cell_only-bottom-padding',
           },
         ];
+        this.cd.markForCheck();
       });
   }
 }

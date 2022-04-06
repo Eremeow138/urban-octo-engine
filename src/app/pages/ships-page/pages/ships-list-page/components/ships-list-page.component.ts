@@ -1,4 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, switchMap, takeUntil, tap } from 'rxjs/operators';
@@ -10,6 +16,7 @@ import { ShipsService } from '../../../ships/services/ships.service';
   selector: 'app-ships-list-page',
   templateUrl: './ships-list-page.component.html',
   styleUrls: ['./ships-list-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShipsListPageComponent implements OnInit, OnDestroy {
   public ships: IShip[] = [];
@@ -32,6 +39,7 @@ export class ShipsListPageComponent implements OnInit, OnDestroy {
     private router: Router,
     private route: ActivatedRoute,
     private shipsService: ShipsService,
+    private cd: ChangeDetectorRef,
   ) {}
 
   ngOnInit() {
@@ -73,7 +81,10 @@ export class ShipsListPageComponent implements OnInit, OnDestroy {
           return popedShips;
         }),
       )
-      .subscribe((ships) => (this.ships = ships));
+      .subscribe((ships) => {
+        this.ships = ships;
+        this.cd.markForCheck();
+      });
   }
 
   public redirectToShipPage(shipId: string): void {
@@ -100,7 +111,10 @@ export class ShipsListPageComponent implements OnInit, OnDestroy {
   private subscribeToGetShips(): void {
     this.getShipsAndResolvePagination()
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((ships) => (this.ships = ships));
+      .subscribe((ships) => {
+        this.ships = ships;
+        this.cd.markForCheck();
+      });
   }
 
   private subscribeToGettingFilteredShips(): void {
@@ -116,6 +130,9 @@ export class ShipsListPageComponent implements OnInit, OnDestroy {
         }),
         switchMap(() => this.getShipsAndResolvePagination()),
       )
-      .subscribe((ships) => (this.ships = ships));
+      .subscribe((ships) => {
+        this.ships = ships;
+        this.cd.markForCheck();
+      });
   }
 }
