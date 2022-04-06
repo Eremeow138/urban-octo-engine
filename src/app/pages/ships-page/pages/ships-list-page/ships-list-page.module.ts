@@ -5,12 +5,14 @@ import { ShipsListPageComponent } from './components/ships-list-page.component';
 import { ShipsListComponent } from './components/ships-list/ships-list.component';
 import { ShipCardComponent } from './components/ships-list/ship-card/ship-card.component';
 import { CommonsModule } from 'src/app/commons/commons.module';
+import { ShipsFiltersFormComponent } from './components/ships-filters-form/ships-filters-form.component';
+import { FormModule } from 'src/app/form/form.module';
 
 const COMPONENTS = [ShipsListPageComponent];
 
 @NgModule({
-  declarations: [...COMPONENTS, ShipsListComponent, ShipCardComponent],
-  imports: [CommonModule, CommonsModule, ShipListPageRoutingModule],
+  declarations: [...COMPONENTS, ShipsListComponent, ShipCardComponent, ShipsFiltersFormComponent],
+  imports: [CommonModule, CommonsModule, ShipListPageRoutingModule, FormModule],
   exports: [...COMPONENTS],
 })
 export class ShipsListPageModule {}

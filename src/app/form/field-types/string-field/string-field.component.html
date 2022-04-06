@@ -1,0 +1,10 @@
+<div class="string-field">
+  <input class="string-field__input" [formControl]="control" required />
+  <label
+    class="string-field__label"
+    [ngClass]="{
+      'string-field__label_placeholder-up': control.value
+    }"
+    >{{ placeholder }}</label
+  >
+</div>

@@ -1,0 +1,26 @@
+@import 'colors';
+@import 'variables';
+@import 'mixins';
+
+:host {
+  @include height-width-100-percent;
+}
+
+.string-field {
+  @include height-width-100-percent;
+  position: relative;
+  &__input {
+    @include input-field;
+    &:focus ~ .string-field__label {
+      @include input-placeholder-up;
+    }
+  }
+
+  &__label {
+    @include input-placeholder;
+
+    &_placeholder-up {
+      @include input-placeholder-up;
+    }
+  }
+}

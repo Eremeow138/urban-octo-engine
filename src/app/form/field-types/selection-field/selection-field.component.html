@@ -1,0 +1,33 @@
+<div class="selection-field">
+  <div class="selection-field__input-wrapper">
+    <input #selectionInput class="selection-field__input" readonly (focus)="showSelectionList()" />
+    <label
+      class="selection-field__label"
+      [ngClass]="{
+        'selection-field__label_placeholder-up': isValueExist()
+      }"
+      >Порт</label
+    >
+  </div>
+  <div class="selection-field__selection-list-wrapper" (click)="stopPropagation($event)">
+    <ul
+      #selectionList
+      class="selection-field__selection-list"
+      [ngClass]="{
+        'selection-field__selection-list_visible': isSelectionListVisible
+      }"
+    >
+      <li *ngFor="let selection of selections" class="selection-field__selection">
+        <label class="selection-field__checkbox-label">
+          <input
+            class="selection-field__checkbox"
+            type="checkbox"
+            [name]="selection"
+            (change)="check($event)"
+          />
+          <span class="selection-field__checkbox-text">{{ selection }}</span>
+        </label>
+      </li>
+    </ul>
+  </div>
+</div>

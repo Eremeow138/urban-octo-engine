@@ -1,0 +1,16 @@
+<div class="radiobutton-field">
+  <div class="radiobutton-field__title-wrapper">
+    <span class="radiobutton-field__title">{{ name }}</span>
+  </div>
+  <div class="radiobutton-field__radiobutton-list-wrapper">
+    <ul class="radiobutton-field__radiobutton-list">
+      <li *ngFor="let choice of choices" class="radiobutton-field__radiobutton">
+        <label class="radiobutton-field__radiobutton-label">
+          <input class="radiobutton-field__radiobutton" type="radio" [value]="choice" [name]="name"
+          (change)="pick($event)" />
+          <span class="radiobutton-field__radiobutton-text">{{ choice }}</span>
+        </label>
+      </li>
+    </ul>
+  </div>
+</div>

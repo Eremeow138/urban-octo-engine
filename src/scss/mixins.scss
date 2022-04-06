@@ -46,3 +46,46 @@
   font-size: $btn-primary-font-size;
   color: $primary-btn-text-color;
 }
+
+@mixin input-placeholder {
+  position: absolute;
+  left: 0px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  color: $input-placeholder-color;
+  min-height: $field-min-height;
+  transition: $primary-duration;
+  pointer-events: none;
+}
+@mixin input-placeholder-up {
+  top: -1.7rem;
+  font-size: 1.4rem;
+}
+
+@mixin input-text {
+  font-size: $primary-font-size;
+  font-family: $default-font-family;
+}
+@mixin input {
+  @include input-text;
+  outline: none;
+}
+@mixin field {
+  width: 100%;
+  height: min-content;
+  min-height: $field-min-height;
+  padding: $field-padding 0;
+  border: none;
+  border-bottom: 1px solid $field-border-color;
+  transition-property: border-color;
+  transition-duration: $primary-duration;
+
+  &:focus {
+    border-color: $field-border-focus-color;
+  }
+}
+@mixin input-field {
+  @include input;
+  @include field;
+}
