@@ -1,4 +1,7 @@
 <div class="ships-list">
+  <div *ngIf="isNoDataMessageVisible" class="ships-list__status-wrapper">
+    <h2 class="ships-list__status">No Data</h2>
+  </div>
   <div class="ships-list__cards-wrapper">
     <app-ship-card
       *ngFor="let ship of ships"
