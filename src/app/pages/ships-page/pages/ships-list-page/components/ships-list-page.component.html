@@ -7,7 +7,7 @@
       <div class="page__content-wrapper ships-list-page__list-wrapper">
         <div class="ships-list-page__list">
           <app-ships-list
-            [ships]="ships$ | async"
+            [ships]="ships"
             [currentPage]="currentPage + 1"
             [isNextPageExist]="isNextPageExist"
             [isPreviousPageExist]="isPreviousPageExist"
@@ -18,6 +18,8 @@
         </div>
       </div>
     </section>
-    <aside class="ships-list-page__filters-wrapper"></aside>
+    <aside class="ships-list-page__filters-wrapper">
+      <app-ships-filters-form (filtersValuesChangedEvent)="filter($event)"></app-ships-filters-form>
+    </aside>
   </div>
 </div>

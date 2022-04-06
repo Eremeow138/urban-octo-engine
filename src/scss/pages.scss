@@ -1,6 +1,6 @@
 @import 'variables';
 @import 'mixins';
-.page{
+.page {
   @include height-width-100-percent;
 
   &__wrapper {
@@ -13,16 +13,16 @@
     @include flex-column;
 
     width: 100%;
-    height: min-content;
-    margin-bottom: 6.4rem;
+    height: calc(6.4rem + #{$primary-title-font-size});
   }
   &__title {
-    font-size: 2.8rem;
+    font-size: $primary-title-font-size;
   }
   &__content-wrapper {
-    @include height-width-100-percent;
     @include flex-column;
 
+    width: 100%;
+    height: calc(100% - 6.4rem - #{$primary-title-font-size});
     align-items: center;
   }
 }

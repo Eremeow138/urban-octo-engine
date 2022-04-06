@@ -8,9 +8,12 @@
 
 .ships-list {
   @include height-width-100-percent;
+  @include flex-column;
   &__cards-wrapper {
     width: 100%;
-    height: calc(100% - 2.8rem);
+    height: 100%;
+    overflow: auto;
+    margin-bottom: 1.2rem;
   }
 
   &__pagination {

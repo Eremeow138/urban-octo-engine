@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ApolloQueryResult } from '@apollo/client/core';
 import { Apollo, ApolloBase, gql } from 'apollo-angular';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ShipsFiltersFormValue } from 'src/app/form/types/ships-filters-form-value';
 import { apolloSettings } from 'src/settings/settings';
 import { IShipFullResponse } from '../interfaces/ship-full-response';
 import { IShipFull } from '../interfaces/ship-full.interface';
@@ -16,8 +17,12 @@ export class ShipsService {
   private apollo: ApolloBase;
 
   private getShipsQuery = gql`
-    query allShips($offset: Int, $limit: Int) {
-      ships(offset: $offset, limit: $limit) {
+    query allShips($offset: Int, $limit: Int, $shipName: String, $port: String, $type: String) {
+      ships(
+        offset: $offset
+        limit: $limit
+        find: { home_port: $port, name: $shipName, type: $type }
+      ) {
         id
         home_port
         name
@@ -46,19 +51,38 @@ export class ShipsService {
     this.apollo = this.apolloProvider.use(apolloSettings.clientNames.spaceXClient);
   }
 
-  getShips(offset: number, limit: number): Observable<IShip[]> {
+  public getShips(offset = 0, limit = 0, shipName = '', port = '', type = ''): Observable<IShip[]> {
     return this.apollo
       .query<IShipResponse>({
         query: this.getShipsQuery,
         variables: {
           offset,
           limit,
+          shipName,
+          port,
+          type,
         },
       })
       .pipe(map((app: ApolloQueryResult<IShipResponse>) => app.data.ships));
   }
 
-  getShipById(id: string): Observable<IShipFull> {
+  public filterShips(
+    offset = 0,
+    limit = 0,
+    find: ShipsFiltersFormValue = { shipName: '', ports: [''], type: '' },
+  ): Observable<IShip[]> {
+    if (find.ports.length > 1) {
+      const requestsArr = find.ports.map((port) =>
+        this.getShips(0, Infinity, find.shipName, port, find.type),
+      );
+      return forkJoin(requestsArr).pipe(
+        map((reqArr) => reqArr.flat(1).slice(offset, offset + limit)),
+      );
+    }
+    return this.getShips(offset, limit, find.shipName, find.ports[0], find.type);
+  }
+
+  public getShipById(id: string): Observable<IShipFull> {
     return this.apollo
       .query<IShipFullResponse>({
         query: this.getShipQuery,
